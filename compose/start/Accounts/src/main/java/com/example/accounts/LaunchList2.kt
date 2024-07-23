@@ -1,6 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
-package com.example.rocketreserver
+package com.example.accounts
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -13,7 +11,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,10 +21,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.common.apolloClient
+import com.example.rocketreserver.LaunchListQuery
 
 @Composable
-fun LaunchList(onLaunchClick: (launchId: String) -> Unit) {
+fun LaunchList2(onLaunchClick: (launchId: String) -> Unit) {
     var launchList by remember { mutableStateOf(emptyList<LaunchListQuery.Launch>()) }
     LaunchedEffect(Unit) {
         val response = apolloClient.query(LaunchListQuery()).execute()
@@ -36,7 +33,7 @@ fun LaunchList(onLaunchClick: (launchId: String) -> Unit) {
 
     LazyColumn {
         items(launchList){ launch ->
-            LaunchItem(launch = launch, onClick = onLaunchClick)
+            LaunchItem2(launch = launch, onClick = onLaunchClick)
         }
 
     }
@@ -44,7 +41,7 @@ fun LaunchList(onLaunchClick: (launchId: String) -> Unit) {
 }
 
 @Composable
-private fun LaunchItem(launch: LaunchListQuery.Launch, onClick: (launchId: String) -> Unit) {
+private fun LaunchItem2(launch: LaunchListQuery.Launch, onClick: (launchId: String) -> Unit) {
 
 
     ListItem(
@@ -61,7 +58,7 @@ private fun LaunchItem(launch: LaunchListQuery.Launch, onClick: (launchId: Strin
             // Mission patch
             Image(
                 modifier = Modifier.size(68.dp, 68.dp),
-                painter = painterResource(R.drawable.ic_placeholder),
+                painter = painterResource(R.drawable.ic_placeholder_2),
                 contentDescription = "Mission patch"
             )
         }

@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.accounts.HomeScreen
 import com.example.rocketreserver.ui.theme.RocketReserverTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,7 +43,7 @@ private fun MainNavHost() {
         composable(route = NavigationDestinations.LAUNCH_LIST) {
             LaunchList(
                 onLaunchClick = { launchId ->
-                    navController.navigate("${NavigationDestinations.LAUNCH_DETAILS}/$launchId")
+                    navController.navigate(NavigationDestinations.Home)
                 }
             )
         }
@@ -53,6 +54,12 @@ private fun MainNavHost() {
 
         composable(route = NavigationDestinations.LOGIN) {
             Login()
+        }
+
+        composable(
+            route = NavigationDestinations.Home
+        ){
+            HomeScreen(navController)
         }
     }
 }

@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Rocket Reserver"
 include(":app")
+include(":Accounts")
+include(":Common")

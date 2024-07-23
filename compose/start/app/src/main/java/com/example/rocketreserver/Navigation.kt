@@ -4,6 +4,7 @@ object NavigationDestinations {
     const val LAUNCH_LIST = "launchList"
     const val LAUNCH_DETAILS = "launchDetails"
     const val LOGIN = "login"
+    const val Home = "home"
 }
 
 object NavigationArguments {
